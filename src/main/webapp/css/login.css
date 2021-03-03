@@ -5,10 +5,11 @@
 }
 a{
 	text-decoration: none;
-	color: white;
+	color: #333;
 }
 a:hover{
 	color: #00FFFF;
+	text-decoration: none;
 }
 .bgimg{
 	width: 100%;
