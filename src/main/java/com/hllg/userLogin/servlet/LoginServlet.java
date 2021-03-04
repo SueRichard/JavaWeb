@@ -1,7 +1,10 @@
 package com.hllg.userLogin.servlet;
 
+import com.hllg.userLogin.dao.CurriculumDao;
 import com.hllg.userLogin.dao.UserDao;
+import com.hllg.userLogin.dao.impl.CurriculumDaoImpl;
 import com.hllg.userLogin.dao.impl.UserDaoImpl;
+import com.hllg.userLogin.model.Curriculum;
 import com.hllg.userLogin.model.User;
 
 import javax.servlet.ServletException;
@@ -13,6 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * @author HLLG
@@ -37,11 +43,16 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("id", user.getId());
             session.setAttribute("user", user.getName());
             session.setAttribute("msg", message);
-            resp.sendRedirect("success.jsp");
+            resp.sendRedirect("/queryAll");
         } else {
             resp.setContentType("text/html;charset=utf-8");
             PrintWriter writer = resp.getWriter();
             writer.print("<script>alert('登录失败，请重试！');location.href='/index.jsp';</script>");
+            writer.close();
+            //临时测试poll和remove方法
+            /*Queue<String> queue= new LinkedList();
+            queue.poll();
+            queue.remove();*/
         }
     }
 }
