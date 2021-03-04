@@ -24,66 +24,73 @@
 		<title></title>
 	</head>
 	<body>
-		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#add">添加</button>
-		<div id="add" class="modal fade">
-			<div class="modal-dialog">
-				<form action="/addCurriculum" method="get" role="form" class="form-horizontal" autocomplete="on" id="addCurriculum">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h4 class="modal-title">添加课程信息</h4>
-						</div>
-						<div class="modal-body">
-							<div class="form-group">
-								<label for="cname" class="control-label col-lg-4">课程名：</label>
-								<div class="col-lg-6">
-									<input class="form-control" type="text" name="cname" id="cname" value="" required="required" />
+		<a href="" onclick="" class="btn btn-warning" data-toggle="modal" data-target="#update">修改</a>
+		<div id="update" class="modal fade">
+					<div class="modal-dialog">
+						<form action="/update" method="get" role="form" class="form-horizontal" autocomplete="on" id="updateCurriculum">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<h4 class="modal-title">修改课程信息</h4>
+								</div>
+								<div class="modal-body">
+		
+										<!--隐藏域-->
+										<input type="hidden" name="cuid" id="cuid" value="" />
+										<div class="form-group">
+											<label for="cname" class="control-label col-lg-4">课程名：</label>
+											<div class="col-lg-6">
+												<input class="form-control" type="text" name="cuName" id="cuName" value="" required="required" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="cprice" class="control-label col-lg-4">价格：</label>
+											<div class="col-lg-6">
+												<input class="form-control" type="text" name="cuPrice" id="cuPrice" value="" required="required" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="cuInfo" class="control-label col-lg-4">简介：</label>
+											<div class="col-lg-6">
+												<input class="form-control" type="text" name="cuInfo" id="cuInfo" value="" required="required" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="cnum" class="control-label col-lg-4">参与人数：</label>
+											<div class="col-lg-6">
+												<input class="form-control" type="text" name="cuNum" id="cuNum" value="" required="required" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="cperiod" class="control-label col-lg-4">课时数：</label>
+											<div class="col-lg-6">
+												<input class="form-control" type="text" name="cuPeriod" id="cuPeriod" value="" required="required" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="cstartTime" class="control-label col-lg-4">开始时间：</label>
+											<div class="col-lg-6">
+												<input class="form-control" type="date" name="cuStartTime" id="cuStartTime" value=""
+												 required="required" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="cendTime" class="control-label col-lg-4">结束时间：</label>
+											<div class="col-lg-6">
+												<input class="form-control" type="date" name="cuEndTime" id="cuEndTime" value=""
+												 required="required" />
+											</div>
+										</div>
+	
+								</div>
+		
+								<div class="modal-footer">
+									<input type="submit" class="btn btn-primary" value="修改" />
+									<input type="reset" value="重置" class="btn btn-warning" />
 								</div>
 							</div>
-							<div class="form-group">
-								<label for="cprice" class="control-label col-lg-4">价格：</label>
-								<div class="col-lg-6">
-									<input class="form-control" type="text" name="cprice" id="cprice" value="" required="required" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="" class="control-label col-lg-4">简介：</label>
-								<div class="col-lg-6">
-									<input class="form-control" type="text" name="cinfo" id="cinfo" value="" required="required" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="cnum" class="control-label col-lg-4">参与人数：</label>
-								<div class="col-lg-6">
-									<input class="form-control" type="text" name="cnum" id="cnum" value="" required="required" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="cperiod" class="control-label col-lg-4">课时数：</label>
-								<div class="col-lg-6">
-									<input class="form-control" type="text" name="cperiod" id="cperiod" value="" required="required" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="cstartTime" class="control-label col-lg-4">开始时间：</label>
-								<div class="col-lg-6">
-									<input class="form-control" type="data" name="cstartTime" id="cstartTime" value="" required="required" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="cendTime" class="control-label col-lg-4">结束时间：</label>
-								<div class="col-lg-6">
-									<input class="form-control" type="date" name="cendTime" id="cendTime" value="" required="required" />
-								</div>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<input type="submit" class="btn btn-success" value="添加" />
-							<input type="reset" value="重置" class="btn btn-warning" />
-						</div>
+						</form>
 					</div>
-				</form>
-			</div>
-		</div>
+				</div>
 	</body>
 </html>

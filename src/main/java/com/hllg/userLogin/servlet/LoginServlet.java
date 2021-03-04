@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -49,10 +50,6 @@ public class LoginServlet extends HttpServlet {
             PrintWriter writer = resp.getWriter();
             writer.print("<script>alert('登录失败，请重试！');location.href='/index.jsp';</script>");
             writer.close();
-            //临时测试poll和remove方法
-            /*Queue<String> queue= new LinkedList();
-            queue.poll();
-            queue.remove();*/
         }
     }
 }

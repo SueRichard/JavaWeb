@@ -61,6 +61,7 @@ public class CurriculumDaoImpl implements CurriculumDao {
     public int delete(int id) {
         String sql = "delete from curriculum where id=?";
         List params = new ArrayList();
+        params.add(id);
         int delete = DBUtil.update(sql, params);
         DBUtil.closeAll();
         return delete;
@@ -85,7 +86,7 @@ public class CurriculumDaoImpl implements CurriculumDao {
 
     @Override
     public Curriculum queryById(int id) {
-        String sql = "select * from curriculum where id=13;";
+        String sql = "select * from curriculum where id=?;";
         List params = new ArrayList();
         params.add(id);
         ResultSet r = DBUtil.queryByCondition(sql, params);

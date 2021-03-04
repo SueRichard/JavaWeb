@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -29,13 +30,13 @@ public class AddCurriculumServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset-utf-8");
         CurriculumDao curriculumDao = new CurriculumDaoImpl();
-        String name = new String(req.getParameter("cname").getBytes("ISO-8859-1"), "UTF-8");
-        String price = new String(req.getParameter("cprice").getBytes("ISO-8859-1"), "UTF-8");
-        String info = new String(req.getParameter("cinfo").getBytes("ISO-8859-1"), "UTF-8");
-        String num = new String(req.getParameter("cnum").getBytes("ISO-8859-1"), "UTF-8");
-        String period = new String(req.getParameter("cperiod").getBytes("ISO-8859-1"), "UTF-8");
-        String startTime = new String(req.getParameter("cstartTime").getBytes("ISO-8859-1"), "UTF-8");
-        String endTime = new String(req.getParameter("cendTime").getBytes("ISO-8859-1"), "UTF-8");
+        String name = req.getParameter("cname");
+        String price = req.getParameter("cprice");
+        String info = req.getParameter("cinfo");
+        String num = req.getParameter("cnum");
+        String period = req.getParameter("cperiod");
+        String startTime = req.getParameter("cstartTime");
+        String endTime = req.getParameter("cendTime");
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try (PrintWriter writer = resp.getWriter()) {
             Curriculum c = new Curriculum(name, Float.parseFloat(price), info, Integer.parseInt(num), Integer.parseInt(period), format.parse(startTime), format.parse(endTime));

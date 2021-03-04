@@ -26,20 +26,24 @@ public class UpdateCurriculumServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html;charset-utf-8");
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        resp.setContentType("text/html;charset=UTF-8");
+        // TODO: 04/03/2021
+        //filterChain.doFilter(servletRequest, servletResponse);
         CurriculumDao curriculumDao = new CurriculumDaoImpl();
+        String id = req.getParameter("cuid");
         String name = new String(req.getParameter("cuName").getBytes("ISO-8859-1"), "UTF-8");
-        String price = new String(req.getParameter("cuPrice").getBytes("ISO-8859-1"), "UTF-8");
-        String info = new String(req.getParameter("cuInfo").getBytes("ISO-8859-1"), "UTF-8");
-        String num = new String(req.getParameter("cuNum").getBytes("ISO-8859-1"), "UTF-8");
-        String period = new String(req.getParameter("cuPeriod").getBytes("ISO-8859-1"), "UTF-8");
-        String startTime = new String(req.getParameter("cuStartTime").getBytes("ISO-8859-1"), "UTF-8");
-        String endTime = new String(req.getParameter("cuEndTime").getBytes("ISO-8859-1"), "UTF-8");
+        String price = req.getParameter("cuPrice");
+        String info = req.getParameter("cuInfo");
+        String num = req.getParameter("cuNum");
+        String period = req.getParameter("cuPeriod");
+        String startTime = req.getParameter("cuStartTime");
+        String endTime = req.getParameter("cuEndTime");
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try (PrintWriter writer = resp.getWriter()) {
             Curriculum c = new Curriculum(name, Float.parseFloat(price), info, Integer.parseInt(num), Integer.parseInt(period), format.parse(startTime), format.parse(endTime));
-            int id=0;
-            int update = curriculumDao.updateById(c, id);
+            int update = curriculumDao.updateById(c, Integer.parseInt(id));
             if (update > 0) {
                 writer.print("<script>alert('修改成功');</script>");
                 //应该独立一个查询servlet
