@@ -1,6 +1,6 @@
-package com.hllg.userLogin.dao;
+package com.hllg.curriculum.dao;
 
-import com.hllg.userLogin.model.Curriculum;
+import com.hllg.curriculum.model.Curriculum;
 
 import java.util.List;
 

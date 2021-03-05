@@ -1,8 +1,8 @@
-package com.hllg.userLogin.servlet;
+package com.hllg.curriculum.servlet;
 
-import com.hllg.userLogin.dao.CurriculumDao;
-import com.hllg.userLogin.dao.impl.CurriculumDaoImpl;
-import com.hllg.userLogin.model.Curriculum;
+import com.hllg.curriculum.dao.CurriculumDao;
+import com.hllg.curriculum.dao.impl.CurriculumDaoImpl;
+import com.hllg.curriculum.model.Curriculum;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;

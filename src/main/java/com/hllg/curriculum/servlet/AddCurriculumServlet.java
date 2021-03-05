@@ -1,8 +1,8 @@
-package com.hllg.userLogin.servlet;
+package com.hllg.curriculum.servlet;
 
-import com.hllg.userLogin.dao.CurriculumDao;
-import com.hllg.userLogin.dao.impl.CurriculumDaoImpl;
-import com.hllg.userLogin.model.Curriculum;
+import com.hllg.curriculum.dao.CurriculumDao;
+import com.hllg.curriculum.dao.impl.CurriculumDaoImpl;
+import com.hllg.curriculum.model.Curriculum;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -12,10 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 /**
  * @author HLLG
@@ -42,12 +40,9 @@ public class AddCurriculumServlet extends HttpServlet {
             Curriculum c = new Curriculum(name, Float.parseFloat(price), info, Integer.parseInt(num), Integer.parseInt(period), format.parse(startTime), format.parse(endTime));
             int add = curriculumDao.add(c);
             if (add > 0) {
-                writer.print("<script>alert('添加成功');</script>");
-                //应该独立一个查询servlet
-                resp.sendRedirect("/queryAll");
+                writer.print("<script>alert('添加成功');location='/queryAll'</script>");
             } else {
                 writer.print("<script>alert('添加失败');</script>");
-                resp.sendRedirect("index.jsp");
             }
         } catch (ParseException e) {
             e.printStackTrace();

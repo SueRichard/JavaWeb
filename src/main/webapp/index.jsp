@@ -24,9 +24,22 @@
 <div class="loginDiv">
     <div class="loginBox">
         <form id="loginInfo" action="/login" method="post" role="form">
+            <%
+                String userName = "";
+                Cookie[] cookies = request.getCookies();
+                if (cookies != null) {
+                    for (Cookie cookie : cookies) {
+                        if ("username".equals(cookie.getName())) {
+                            userName = cookie.getValue();
+                            break;
+                        }
+                    }
+                }
+            %>
+            <%--    如果使用EL表达式请先赋值给一个作用域--%>
             <div class="form-group">
                 <label for="username" class="control-label">用户名：</label><br>
-                <input class="form-control" type="text" name="username" id="username" value=""
+                <input class="form-control" type="text" name="username" id="username" value="<%=userName%>"
                        style="margin-left: 30px;width: 300px;" placeholder="请输入用户名"/>
             </div>
             <div class="form-group">

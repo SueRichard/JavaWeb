@@ -1,8 +1,8 @@
-package com.hllg.userLogin.servlet;
+package com.hllg.curriculum.servlet;
 
-import com.hllg.userLogin.dao.CurriculumDao;
-import com.hllg.userLogin.dao.impl.CurriculumDaoImpl;
-import com.hllg.userLogin.model.Curriculum;
+import com.hllg.curriculum.dao.CurriculumDao;
+import com.hllg.curriculum.dao.impl.CurriculumDaoImpl;
+import com.hllg.curriculum.model.Curriculum;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -26,14 +26,10 @@ public class UpdateCurriculumServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("utf-8");
-        resp.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=UTF-8");
-        // TODO: 04/03/2021
-        //filterChain.doFilter(servletRequest, servletResponse);
         CurriculumDao curriculumDao = new CurriculumDaoImpl();
         String id = req.getParameter("cuid");
-        String name = new String(req.getParameter("cuName").getBytes("ISO-8859-1"), "UTF-8");
+        String name = req.getParameter("cuName");
         String price = req.getParameter("cuPrice");
         String info = req.getParameter("cuInfo");
         String num = req.getParameter("cuNum");
@@ -45,12 +41,9 @@ public class UpdateCurriculumServlet extends HttpServlet {
             Curriculum c = new Curriculum(name, Float.parseFloat(price), info, Integer.parseInt(num), Integer.parseInt(period), format.parse(startTime), format.parse(endTime));
             int update = curriculumDao.updateById(c, Integer.parseInt(id));
             if (update > 0) {
-                writer.print("<script>alert('修改成功');</script>");
-                //应该独立一个查询servlet
-                resp.sendRedirect("/queryAll");
+                writer.print("<script>alert('修改成功');location='/queryAll';</script>");
             } else {
                 writer.print("<script>alert('修改失败');</script>");
-                resp.sendRedirect("index.jsp");
             }
         } catch (ParseException e) {
             e.printStackTrace();

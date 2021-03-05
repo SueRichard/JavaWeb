@@ -1,6 +1,6 @@
-package com.hllg.userLogin.dao;
+package com.hllg.curriculum.dao;
 
-import com.hllg.userLogin.model.User;
+import com.hllg.curriculum.model.User;
 
 /**
  * @author HLLG

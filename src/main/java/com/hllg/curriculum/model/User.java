@@ -1,4 +1,4 @@
-package com.hllg.userLogin.model;
+package com.hllg.curriculum.model;
 
 import java.io.Serializable;
 import java.util.Objects;

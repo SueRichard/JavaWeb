@@ -1,8 +1,8 @@
-package com.hllg.userLogin.dao.impl;
+package com.hllg.curriculum.dao.impl;
 
-import com.hllg.userLogin.dao.CurriculumDao;
-import com.hllg.userLogin.model.Curriculum;
-import com.hllg.userLogin.utils.DBUtil;
+import com.hllg.curriculum.dao.CurriculumDao;
+import com.hllg.curriculum.model.Curriculum;
+import com.hllg.curriculum.utils.DBUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

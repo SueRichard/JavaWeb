@@ -1,25 +1,15 @@
-package com.hllg.userLogin.servlet;
+package com.hllg.curriculum.servlet;
 
-import com.hllg.userLogin.dao.CurriculumDao;
-import com.hllg.userLogin.dao.UserDao;
-import com.hllg.userLogin.dao.impl.CurriculumDaoImpl;
-import com.hllg.userLogin.dao.impl.UserDaoImpl;
-import com.hllg.userLogin.model.Curriculum;
-import com.hllg.userLogin.model.User;
+import com.hllg.curriculum.dao.UserDao;
+import com.hllg.curriculum.dao.impl.UserDaoImpl;
+import com.hllg.curriculum.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
 
 /**
  * @author HLLG
@@ -44,6 +34,8 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("id", user.getId());
             session.setAttribute("user", user.getName());
             session.setAttribute("msg", message);
+            Cookie cookie = new Cookie("username",username);
+            resp.addCookie(cookie);
             resp.sendRedirect("/queryAll");
         } else {
             resp.setContentType("text/html;charset=utf-8");

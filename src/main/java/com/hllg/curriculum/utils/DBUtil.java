@@ -1,14 +1,12 @@
-package com.hllg.userLogin.utils;
+package com.hllg.curriculum.utils;
 
 import com.alibaba.druid.pool.DruidDataSource;
 
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 /**
