@@ -1,0 +1,36 @@
+. {
+    box-sizing: border-box;
+}
+
+.bg {
+    height: 240px;
+    background-image: url(../img/alipay.jpg);
+}
+
+.body-gray {
+    background-color: lightgray;
+}
+
+.rows {
+    height: 200px;
+    background-color: white;
+    padding-left: 80px;
+    padding-top: 30px;
+
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #eee;
+    outline: none;
+    width: 70%;
+}
+
+p {
+    text-align: center;
+    border: dashed 1px #eee;
+    font-size: 16px;
+    line-height: 40px;
+    margin-right: 80px;
+}
+

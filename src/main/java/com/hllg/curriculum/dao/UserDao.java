@@ -8,5 +8,5 @@ import com.hllg.curriculum.model.User;
  * @time 2021/03/03  Wed  00:13
  */
 public interface UserDao {
-    User userLoginCheck(String name,String password);
+    User userLoginCheck(String name, String password);
 }

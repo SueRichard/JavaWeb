@@ -14,22 +14,19 @@ public class User implements Serializable {
     private String name;
     private String password;
     int role;
+    private int credit;
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && role == user.role && Objects.equals(name, user.name) && Objects.equals(password, user.password);
+        return id == user.id && role == user.role && credit == user.credit && Objects.equals(name, user.name) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, password, role);
+        return Objects.hash(id, name, password, role, credit);
     }
 
     @Override
@@ -39,17 +36,27 @@ public class User implements Serializable {
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", role=" + role +
+                ", credit=" + credit +
                 '}';
     }
 
     public User() {
     }
 
-    public User(int id, String name, String password, int role) {
+    public User(int id, String name, String password, int role, int credit) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.role = role;
+        this.credit = credit;
+    }
+
+    public int getCredit() {
+        return credit;
+    }
+
+    public void setCredit(int credit) {
+        this.credit = credit;
     }
 
 

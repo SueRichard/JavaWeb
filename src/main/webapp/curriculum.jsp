@@ -200,7 +200,7 @@
         <c:forEach items="${curricula}" var="curriculum" varStatus="index">
             <tr>
                 <td>${index.count}</td>
-                <td>${curriculum.name}</td>
+                <td><a href="/detail?curriculumId=${curriculum.id}">${curriculum.name}</a></td>
                 <td>${curriculum.price}</td>
                 <td>${curriculum.info}</td>
                 <td>${curriculum.num}</td>

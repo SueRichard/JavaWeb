@@ -33,7 +33,6 @@ public class QueryCurriculumByIdServlet extends HttpServlet {
          * @Author HLLG
          * @Date 04/03/2021 20:29
          **/
-        resp.setContentType("text/html; charset=UTF-8");
         CurriculumDao curriculumDao = new CurriculumDaoImpl();
         String id = req.getParameter("id");
         Curriculum curriculum = curriculumDao.queryById(Integer.parseInt(id));

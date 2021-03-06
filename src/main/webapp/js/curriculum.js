@@ -18,3 +18,4 @@ function evaluation(obj, id) {
     $("#cuEndTime").val($(tds.eq(7)).text().trim());
     console.log($(tds.eq(6)).text());
 }
+

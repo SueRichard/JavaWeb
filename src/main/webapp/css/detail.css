@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+.criticism {
+    /* background-color: springgreen; */
+    height: 90px;
+    padding: 15px;
+}
+
+
+.profile-left {
+    /* background-color: #00FFFF; */
+    height: 60px;
+    line-height: 60px;
+    width: 60px;
+    float: left;
+}
+
+.content-body {
+    /* background-color: pink; */
+    height: 60px;
+    float: left;
+    width: 90%;
+
+}
+
+span {
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.clear {
+    clear: both;
+}
+
+.del {
+    padding-left: 1080px;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+a:hover {
+    color: skyblue;
+    text-decoration: none;
+}

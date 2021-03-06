@@ -17,7 +17,7 @@ import java.io.PrintWriter;
  * @version 1.0
  * @time 2021/03/03  Wed  23:02
  */
-@WebServlet(urlPatterns = {"/delete"},initParams = @WebInitParam(name = "code",value = "utf-8"))
+@WebServlet(urlPatterns = {"/delete"}, initParams = @WebInitParam(name = "code", value = "utf-8"))
 public class DeleteCurriculumServlet extends HttpServlet {
     private static final long serialVersionUID = 2058007156373642719L;
 

@@ -33,8 +33,9 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("id", user.getId());
             session.setAttribute("user", user.getName());
+            session.setAttribute("credit", user.getCredit());
             session.setAttribute("msg", message);
-            Cookie cookie = new Cookie("username",username);
+            Cookie cookie = new Cookie("username", username);
             resp.addCookie(cookie);
             resp.sendRedirect("/queryAll");
         } else {
