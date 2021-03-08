@@ -1,11 +1,11 @@
 package com.hllg.curriculum.servlet;
 
-import com.hllg.curriculum.dao.CriticismDao;
-import com.hllg.curriculum.dao.CurriculumDao;
-import com.hllg.curriculum.dao.impl.CriticismDaoImpl;
-import com.hllg.curriculum.dao.impl.CurriculumDaoImpl;
 import com.hllg.curriculum.model.Criticism;
 import com.hllg.curriculum.model.Curriculum;
+import com.hllg.curriculum.service.CriticismService;
+import com.hllg.curriculum.service.CurriculumService;
+import com.hllg.curriculum.service.impl.CriticismServiceImpl;
+import com.hllg.curriculum.service.impl.CurriculumServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,10 +27,10 @@ public class queryCriticismByCIDServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int curriculumId = Integer.parseInt(req.getParameter("curriculumId"));
-        CriticismDao criticismDao = new CriticismDaoImpl();
-        CurriculumDao curriculumDao = new CurriculumDaoImpl();
-        Curriculum curriculum = curriculumDao.queryById(curriculumId);
-        List<Criticism> criticisms = criticismDao.queryByCurriculumId(curriculumId);
+        CriticismService criticismService = new CriticismServiceImpl();
+        CurriculumService curriculumService = new CurriculumServiceImpl();
+        Curriculum curriculum = curriculumService.queryById(curriculumId);
+        List<Criticism> criticisms = criticismService.queryByCurriculumId(curriculumId);
         req.getSession().setAttribute("course", curriculum);
         req.getSession().setAttribute("criticisms", criticisms);
         resp.sendRedirect("detail.jsp");

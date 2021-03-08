@@ -1,7 +1,7 @@
 package com.hllg.curriculum.servlet;
 
-import com.hllg.curriculum.dao.UserDao;
-import com.hllg.curriculum.dao.impl.UserDaoImpl;
+import com.hllg.curriculum.service.UserService;
+import com.hllg.curriculum.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,8 +23,8 @@ public class DownloadServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String courseId = req.getParameter("courseId");
         int id = (int) req.getSession().getAttribute("id");
-        UserDao userDao = new UserDaoImpl();
-        int updateUserCredit = userDao.updateUserCreditById(id, -100);
+        UserService userService = new UserServiceImpl();
+        int updateUserCredit = userService.updateUserCreditById(id, -100);
         if (updateUserCredit > 0) {
             resp.sendRedirect("/download.jsp");
         } else {

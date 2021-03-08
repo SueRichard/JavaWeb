@@ -1,8 +1,8 @@
 package com.hllg.curriculum.servlet;
 
-import com.hllg.curriculum.dao.CurriculumDao;
-import com.hllg.curriculum.dao.impl.CurriculumDaoImpl;
 import com.hllg.curriculum.model.Curriculum;
+import com.hllg.curriculum.service.CurriculumService;
+import com.hllg.curriculum.service.impl.CurriculumServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -26,7 +26,7 @@ public class AddCurriculumServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CurriculumDao curriculumDao = new CurriculumDaoImpl();
+        CurriculumService curriculumService = new CurriculumServiceImpl();
         String name = req.getParameter("cname");
         String price = req.getParameter("cprice");
         String info = req.getParameter("cinfo");
@@ -37,7 +37,7 @@ public class AddCurriculumServlet extends HttpServlet {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try (PrintWriter writer = resp.getWriter()) {
             Curriculum c = new Curriculum(name, Float.parseFloat(price), info, Integer.parseInt(num), Integer.parseInt(period), format.parse(startTime), format.parse(endTime));
-            int add = curriculumDao.add(c);
+            int add = curriculumService.add(c);
             if (add > 0) {
                 writer.print("<script>alert('添加成功');location='/queryAll'</script>");
             } else {

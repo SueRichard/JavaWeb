@@ -1,7 +1,7 @@
 package com.hllg.curriculum.servlet;
 
-import com.hllg.curriculum.dao.CriticismDao;
-import com.hllg.curriculum.dao.impl.CriticismDaoImpl;
+import com.hllg.curriculum.service.CriticismService;
+import com.hllg.curriculum.service.impl.CriticismServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,8 +23,8 @@ public class DelCriticismServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String cid = req.getParameter("cid");
         String curriculumId = req.getParameter("curriculumId").trim();
-        CriticismDao criticismDao = new CriticismDaoImpl();
-        int delete = criticismDao.deleteById(Integer.parseInt(cid));
+        CriticismService criticismService = new CriticismServiceImpl();
+        int delete = criticismService.deleteById(Integer.parseInt(cid));
         if (delete > 0) {
             resp.getWriter().print("<script>alert('删除了');location='/detail?curriculumId=" + curriculumId + "'</script>");
         } else {

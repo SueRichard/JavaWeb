@@ -1,7 +1,7 @@
 package com.hllg.curriculum.servlet;
 
-import com.hllg.curriculum.dao.CurriculumDao;
-import com.hllg.curriculum.dao.impl.CurriculumDaoImpl;
+import com.hllg.curriculum.service.CurriculumService;
+import com.hllg.curriculum.service.impl.CurriculumServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -23,10 +23,10 @@ public class DeleteCurriculumServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CurriculumDao curriculumDao = new CurriculumDaoImpl();
+        CurriculumService curriculumService = new CurriculumServiceImpl();
         String id = new String(req.getParameter("id").getBytes("ISO-8859-1"), "UTF-8");
         try (PrintWriter writer = resp.getWriter()) {
-            int delete = curriculumDao.delete(Integer.parseInt(id));
+            int delete = curriculumService.delete(Integer.parseInt(id));
             if (delete > 0) {
                 writer.print("<script>alert('删除成功');</script>");
                 //应该独立一个查询servlet

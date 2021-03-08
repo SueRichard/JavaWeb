@@ -1,8 +1,8 @@
 package com.hllg.curriculum.servlet;
 
-import com.hllg.curriculum.dao.CurriculumDao;
-import com.hllg.curriculum.dao.impl.CurriculumDaoImpl;
 import com.hllg.curriculum.model.Curriculum;
+import com.hllg.curriculum.service.CurriculumService;
+import com.hllg.curriculum.service.impl.CurriculumServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -33,9 +33,9 @@ public class QueryCurriculumByIdServlet extends HttpServlet {
          * @Author HLLG
          * @Date 04/03/2021 20:29
          **/
-        CurriculumDao curriculumDao = new CurriculumDaoImpl();
+        CurriculumService curriculumService = new CurriculumServiceImpl();
         String id = req.getParameter("id");
-        Curriculum curriculum = curriculumDao.queryById(Integer.parseInt(id));
+        Curriculum curriculum = curriculumService.queryById(Integer.parseInt(id));
         HttpSession session = req.getSession();
         session.setAttribute("singleCourse", curriculum);
     }

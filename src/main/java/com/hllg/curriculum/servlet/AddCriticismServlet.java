@@ -1,8 +1,8 @@
 package com.hllg.curriculum.servlet;
 
-import com.hllg.curriculum.dao.CriticismDao;
-import com.hllg.curriculum.dao.impl.CriticismDaoImpl;
 import com.hllg.curriculum.model.Criticism;
+import com.hllg.curriculum.service.CriticismService;
+import com.hllg.curriculum.service.impl.CriticismServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,8 +30,8 @@ public class AddCriticismServlet extends HttpServlet {
         Criticism c = new Criticism(id, curriculumId, criticism, new Date());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(simpleDateFormat.format(new Date()));
-        CriticismDao criticismDao = new CriticismDaoImpl();
-        int add = criticismDao.add(c);
+        CriticismService criticismService = new CriticismServiceImpl();
+        int add = criticismService.add(c);
         if (add > 0) {
             resp.getWriter().print("<script>alert('添加成功');location='/detail?curriculumId=" + curriculumId + "'</script>");
         } else {

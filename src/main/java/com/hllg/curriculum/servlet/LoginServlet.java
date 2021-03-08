@@ -1,8 +1,8 @@
 package com.hllg.curriculum.servlet;
 
-import com.hllg.curriculum.dao.UserDao;
-import com.hllg.curriculum.dao.impl.UserDaoImpl;
 import com.hllg.curriculum.model.User;
+import com.hllg.curriculum.service.UserService;
+import com.hllg.curriculum.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -26,8 +26,8 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("userpwd");
-        UserDao userDao = new UserDaoImpl();
-        User user = userDao.userLoginCheck(username, password);
+        UserService userService = new UserServiceImpl();
+        User user = userService.userLoginCheck(username, password);
         if (user.getName() != null) {
             String message = "登录成功！<br/>尊敬的<b>" + user.getName() + "</b>，你好！";
             HttpSession session = req.getSession();

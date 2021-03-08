@@ -1,8 +1,8 @@
 package com.hllg.curriculum.servlet;
 
-import com.hllg.curriculum.dao.CurriculumDao;
-import com.hllg.curriculum.dao.impl.CurriculumDaoImpl;
 import com.hllg.curriculum.model.Curriculum;
+import com.hllg.curriculum.service.CurriculumService;
+import com.hllg.curriculum.service.impl.CurriculumServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -25,8 +25,8 @@ public class QueryCurriculumServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CurriculumDao curriculumDao = new CurriculumDaoImpl();
-        List<Curriculum> curricula = curriculumDao.findAll();
+        CurriculumService curriculumService = new CurriculumServiceImpl();
+        List<Curriculum> curricula = curriculumService.findAll();
         HttpSession session = req.getSession();
         session.setAttribute("curricula", curricula);
         resp.sendRedirect("curriculum.jsp");
