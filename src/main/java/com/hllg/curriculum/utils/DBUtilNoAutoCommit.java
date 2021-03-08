@@ -12,10 +12,9 @@ import java.util.ResourceBundle;
 /**
  * @author HLLG
  * @version 1.0
- * @time 2021/03/02  Tue  22:18
- * 连接数据库的工具类
+ * @time 2021/03/08  Mon  16:58
  */
-public class DBUtil {
+public class DBUtilNoAutoCommit {
     private static Connection c;
     private static PreparedStatement p;
     private static ResultSet r;
@@ -38,19 +37,36 @@ public class DBUtil {
         dataSource.setValidationQuery("select '1'");
     }
 
-    public static Connection getConnection() {
+    public static Connection getNoAutoCommitConnection() {
         try {
             c = dataSource.getConnection();
+            c.setAutoCommit(false);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return c;
     }
 
-
-    public static PreparedStatement getPreparedStatement(String sql) {
+    public static void rollback() {
         try {
-            p = getConnection().prepareStatement(sql);
+            c.rollback();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public static void commit() {
+        try {
+            c.commit();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+
+    public static PreparedStatement getNotCommitPreparedStatement(String sql) {
+        try {
+            p = getNoAutoCommitConnection().prepareStatement(sql);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -69,8 +85,9 @@ public class DBUtil {
         }
     }
 
-    public static int update(String sql, List params) {
-        getPreparedStatement(sql);
+
+    public static int noAutoCommitUpdate(String sql, List params) {
+        getNotCommitPreparedStatement(sql);
         setParameters(params);
         try {
             return p.executeUpdate();
@@ -80,8 +97,9 @@ public class DBUtil {
         return 0;
     }
 
-    public static ResultSet queryByCondition(String sql, List params) {
-        getPreparedStatement(sql);
+
+    public static ResultSet noAutoCommitQueryByCondition(String sql, List params) {
+        getNotCommitPreparedStatement(sql);
         setParameters(params);
         try {
             r = p.executeQuery();
@@ -91,8 +109,9 @@ public class DBUtil {
         return r;
     }
 
-    public static ResultSet queryAll(String sql) {
-        getPreparedStatement(sql);
+
+    public static ResultSet noAutoCommitQueryAll(String sql) {
+        getNotCommitPreparedStatement(sql);
         try {
             r = p.executeQuery();
         } catch (SQLException throwables) {

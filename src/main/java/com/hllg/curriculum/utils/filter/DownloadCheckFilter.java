@@ -23,7 +23,8 @@ public class DownloadCheckFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         int credit = (int) request.getSession().getAttribute("credit");
-        if (credit < minDownloadCredit) {
+        String isRecharge = (String) request.getSession().getAttribute("isRecharge");
+        if (credit < minDownloadCredit && (isRecharge == null || "false".equals(isRecharge.trim()))) {
             response.getWriter().print("<script>confirm('你的积分为：" + credit + "，不足100，是否充值？')?location='/recharge.jsp':location='/queryAll'</script>");
         } else {
             filterChain.doFilter(request, response);

@@ -7,6 +7,7 @@ import com.hllg.curriculum.utils.DBUtil;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -38,5 +39,44 @@ public class UserDaoImpl implements UserDao {
             DBUtil.closeAll();
         }
         return u;
+    }
+
+
+    @Override
+    public int updateUserCreditById(int id, int credit) {
+        if (credit < 0) {
+            String query = "select credit from user where id=?";
+            List param = new ArrayList();
+            param.add(id);
+            ResultSet resultSet = DBUtil.queryByCondition(query, param);
+            int resultNumber = 0;
+            try {
+                while (resultSet.next()) {
+                    resultNumber = resultSet.getInt("credit");
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } finally {
+                DBUtil.closeAll();
+            }
+            if (resultNumber - 100 >= 0) {
+                String sql = "update user set credit=credit+? where id=?";
+                List params = new LinkedList();
+                params.add(credit);
+                params.add(id);
+                int update = DBUtil.update(sql, params);
+                DBUtil.closeAll();
+                return update;
+            }
+            return 0;
+        } else {
+            String sql = "update user set credit=credit+? where id=?";
+            List params = new LinkedList();
+            params.add(credit);
+            params.add(id);
+            int update = DBUtil.update(sql, params);
+            DBUtil.closeAll();
+            return update;
+        }
     }
 }

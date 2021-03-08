@@ -228,7 +228,7 @@
             <td colspan="1">
                 <a class="btn btn-success" data-toggle="modal" data-target="#add">添加</a>
             </td>
-            <td colspan="9">更多课程即将开课，敬请期待。</td>
+            <td colspan="9">课程评论请点击课程名。更多课程即将开课，敬请期待。</td>
         </tr>
         </tfoot>
     </table>

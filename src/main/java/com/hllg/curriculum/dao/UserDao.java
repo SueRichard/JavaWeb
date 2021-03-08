@@ -9,4 +9,6 @@ import com.hllg.curriculum.model.User;
  */
 public interface UserDao {
     User userLoginCheck(String name, String password);
+
+    int updateUserCreditById(int id, int credit);
 }
