@@ -45,7 +45,8 @@
                 <img src="img/profile.jpg" class="img-circle" width="60px" height="60px">
             </div>
             <div class="content-body">
-                <p><span>用户名</span>于<fmt:formatDate value="${criticism.time}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+                <p><span>${criticism.userName}</span>于<fmt:formatDate value="${criticism.time}"
+                                                                      pattern="yyyy-MM-dd HH:mm:ss"/></p>
                 <span>${criticism.content}</span>
             </div>
             <c:if test="${criticism.userId==sessionScope.id}">

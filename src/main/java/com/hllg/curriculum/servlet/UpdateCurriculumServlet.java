@@ -26,7 +26,6 @@ public class UpdateCurriculumServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html;charset=UTF-8");
         CurriculumDao curriculumDao = new CurriculumDaoImpl();
         String id = req.getParameter("cuid");
         String name = req.getParameter("cuName");

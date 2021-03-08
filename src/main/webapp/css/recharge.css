@@ -1,36 +1,66 @@
-. {
-    box-sizing: border-box;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 .bg {
-    height: 240px;
-    background-image: url(../img/alipay.jpg);
+	height: 240px;
+	background-image: url(../img/alipay.jpg);
+	background-repeat: no-repeat;
+	width: 1080px;
+	margin: 0 auto;
 }
 
-.body-gray {
-    background-color: lightgray;
+.container {
+	width: 90%;
+	margin: 0 auto;
+	background: #FFFFFF;
+	margin-top: 5%;
 }
 
-.rows {
-    height: 200px;
-    background-color: white;
-    padding-left: 80px;
-    padding-top: 30px;
-
+.number_amount{
+	position: relative;
+	height: 42px;
+}
+.play{
+	margin: 0 auto;
+	padding: 10px 0px;
+	width: 100%;
+}
+.row p.active {
+	border: #337ab7 solid 1px;
+	color: #337AB7;
+	border-radius: 2px;
+}
+.row p{
+	display: inline-block;
+	text-align: center;
+	font-size: 16px;
+	line-height: 40px;
+	border: dashed 1px #eee;
+	color: #888;
+	/* 百分数,基于父元素的百分比宽度 */
+	margin: 10px 3.3%;
 }
 
 input {
-    border: none;
-    border-bottom: 1px solid #eee;
-    outline: none;
-    width: 70%;
+	border: none;
+	border-bottom: 1px solid #eee;
+	outline: none;
+	width: 100%;
+	padding: 0 30px;
+	font-size: 24px;
 }
 
-p {
-    text-align: center;
-    border: dashed 1px #eee;
-    font-size: 16px;
-    line-height: 40px;
-    margin-right: 80px;
+.number_amount label{
+	position: absolute;
+	top: 50%;
+	margin-top: -30px;
+	font-size: 24px;
+	left: 0;
 }
-
+.form-group{
+	padding-left: 260px;
+	width: 81%;
+}

@@ -16,6 +16,7 @@ public class Criticism implements Serializable {
     private int curriculumId;
     private String content;
     private Date time;
+    private String userName;
 
     public Criticism() {
     }
@@ -57,6 +58,14 @@ public class Criticism implements Serializable {
                 ", content='" + content + '\'' +
                 ", time=" + time +
                 '}';
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public int getId() {

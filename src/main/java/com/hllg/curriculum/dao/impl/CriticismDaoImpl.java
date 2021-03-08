@@ -18,7 +18,7 @@ public class CriticismDaoImpl implements CriticismDao {
     @Override
     public List<Criticism> queryByCurriculumId(int id) {
         List<Criticism> list = new ArrayList<>();
-        String sql = " select * from criticism where curriculumId=?";
+        String sql = "select criticism.*,`user`.`name` userName from criticism inner join user on criticism.userId=user.id where criticism.curriculumId=?";
         List params = new ArrayList();
         params.add(id);
         ResultSet rs = DBUtil.queryByCondition(sql, params);
@@ -31,6 +31,7 @@ public class CriticismDaoImpl implements CriticismDao {
                 criticism.setContent(rs.getString("content"));
                 //同时获取时间和日期
                 criticism.setTime(rs.getTimestamp("time"));
+                criticism.setUserName(rs.getString("userName"));
                 list.add(criticism);
             }
         } catch (SQLException throwables) {

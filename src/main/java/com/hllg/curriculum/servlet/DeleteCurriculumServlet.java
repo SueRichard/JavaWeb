@@ -23,7 +23,6 @@ public class DeleteCurriculumServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html;charset-utf-8");
         CurriculumDao curriculumDao = new CurriculumDaoImpl();
         String id = new String(req.getParameter("id").getBytes("ISO-8859-1"), "UTF-8");
         try (PrintWriter writer = resp.getWriter()) {

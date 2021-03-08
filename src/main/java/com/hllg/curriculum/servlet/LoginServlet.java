@@ -39,7 +39,6 @@ public class LoginServlet extends HttpServlet {
             resp.addCookie(cookie);
             resp.sendRedirect("/queryAll");
         } else {
-            resp.setContentType("text/html;charset=utf-8");
             PrintWriter writer = resp.getWriter();
             writer.print("<script>alert('登录失败，请重试！');location.href='/index.jsp';</script>");
             writer.close();
