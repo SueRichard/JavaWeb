@@ -2,7 +2,7 @@ package com.hllg.curriculum.service.impl;
 
 import com.hllg.curriculum.dao.CriticismDao;
 import com.hllg.curriculum.dao.impl.CriticismDaoImpl;
-import com.hllg.curriculum.model.Criticism;
+import com.hllg.curriculum.bean.Criticism;
 import com.hllg.curriculum.service.CriticismService;
 
 import java.util.List;

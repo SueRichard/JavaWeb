@@ -1,7 +1,7 @@
 package com.hllg.curriculum.dao.impl;
 
 import com.hllg.curriculum.dao.UserDao;
-import com.hllg.curriculum.model.User;
+import com.hllg.curriculum.bean.User;
 import com.hllg.curriculum.utils.DBUtil;
 
 import java.sql.ResultSet;

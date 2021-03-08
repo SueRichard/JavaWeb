@@ -2,7 +2,7 @@ package com.hllg.curriculum.service.impl;
 
 import com.hllg.curriculum.dao.CurriculumDao;
 import com.hllg.curriculum.dao.impl.CurriculumDaoImpl;
-import com.hllg.curriculum.model.Curriculum;
+import com.hllg.curriculum.bean.Curriculum;
 import com.hllg.curriculum.service.CurriculumService;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.hllg.curriculum.dao.impl;
 
 import com.hllg.curriculum.dao.CriticismDao;
-import com.hllg.curriculum.model.Criticism;
+import com.hllg.curriculum.bean.Criticism;
 import com.hllg.curriculum.utils.DBUtil;
 
 import java.sql.ResultSet;

@@ -1,4 +1,4 @@
-package com.hllg.curriculum.model;
+package com.hllg.curriculum.bean;
 
 import java.io.Serializable;
 import java.util.Objects;

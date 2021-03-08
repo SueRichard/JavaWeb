@@ -1,6 +1,6 @@
 package com.hllg.curriculum.dao;
 
-import com.hllg.curriculum.model.Criticism;
+import com.hllg.curriculum.bean.Criticism;
 
 import java.util.List;
 

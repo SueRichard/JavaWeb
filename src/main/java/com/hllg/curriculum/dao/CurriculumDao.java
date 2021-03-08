@@ -1,6 +1,6 @@
 package com.hllg.curriculum.dao;
 
-import com.hllg.curriculum.model.Curriculum;
+import com.hllg.curriculum.bean.Curriculum;
 
 import java.util.List;
 

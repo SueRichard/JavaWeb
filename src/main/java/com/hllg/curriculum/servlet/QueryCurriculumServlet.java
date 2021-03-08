@@ -1,6 +1,6 @@
 package com.hllg.curriculum.servlet;
 
-import com.hllg.curriculum.model.Curriculum;
+import com.hllg.curriculum.bean.Curriculum;
 import com.hllg.curriculum.service.CurriculumService;
 import com.hllg.curriculum.service.impl.CurriculumServiceImpl;
 

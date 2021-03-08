@@ -1,6 +1,6 @@
 package com.hllg.curriculum.servlet;
 
-import com.hllg.curriculum.model.Criticism;
+import com.hllg.curriculum.bean.Criticism;
 import com.hllg.curriculum.service.CriticismService;
 import com.hllg.curriculum.service.impl.CriticismServiceImpl;
 

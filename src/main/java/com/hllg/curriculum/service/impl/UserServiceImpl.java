@@ -2,7 +2,7 @@ package com.hllg.curriculum.service.impl;
 
 import com.hllg.curriculum.dao.UserDao;
 import com.hllg.curriculum.dao.impl.UserDaoImpl;
-import com.hllg.curriculum.model.User;
+import com.hllg.curriculum.bean.User;
 import com.hllg.curriculum.service.UserService;
 
 /**
