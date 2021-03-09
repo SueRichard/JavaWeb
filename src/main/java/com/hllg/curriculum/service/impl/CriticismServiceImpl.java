@@ -1,8 +1,8 @@
 package com.hllg.curriculum.service.impl;
 
+import com.hllg.curriculum.bean.Criticism;
 import com.hllg.curriculum.dao.CriticismDao;
 import com.hllg.curriculum.dao.impl.CriticismDaoImpl;
-import com.hllg.curriculum.bean.Criticism;
 import com.hllg.curriculum.service.CriticismService;
 
 import java.util.List;
@@ -28,5 +28,15 @@ public class CriticismServiceImpl implements CriticismService {
     @Override
     public int add(Criticism criticism) {
         return criticismDao.add(criticism);
+    }
+
+    @Override
+    public int updateLikesNumberById(int id, int number) {
+        return criticismDao.updateLikesNumberById(id, number);
+    }
+
+    @Override
+    public int getLikesNumberById(int id) {
+        return criticismDao.getLikesNumberById(id);
     }
 }

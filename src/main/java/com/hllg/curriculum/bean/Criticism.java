@@ -17,6 +17,8 @@ public class Criticism implements Serializable {
     private String content;
     private Date time;
     private String userName;
+    private int peopleNumber;
+    private int likesNumber;
 
     public Criticism() {
     }
@@ -34,6 +36,14 @@ public class Criticism implements Serializable {
         this.curriculumId = curriculumId;
         this.content = content;
         this.time = time;
+    }
+
+    public int getLikesNumber() {
+        return likesNumber;
+    }
+
+    public void setLikesNumber(int likesNumber) {
+        this.likesNumber = likesNumber;
     }
 
     @Override
@@ -58,6 +68,14 @@ public class Criticism implements Serializable {
                 ", content='" + content + '\'' +
                 ", time=" + time +
                 '}';
+    }
+
+    public int getPeopleNumber() {
+        return peopleNumber;
+    }
+
+    public void setPeopleNumber(int peopleNumber) {
+        this.peopleNumber = peopleNumber;
     }
 
     public String getUserName() {

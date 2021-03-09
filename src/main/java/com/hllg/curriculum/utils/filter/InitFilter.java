@@ -34,7 +34,11 @@ public class InitFilter implements Filter {
         String uri = request.getRequestURI();
         System.out.println(uri);
         //设置资源放行，指定资源可以在未登录的情况下访问，或者有session的情况下
-        if (uri.endsWith("/index.jsp") || uri.endsWith("/login") || uri.endsWith("/") || uri.contains("/js/") || uri.contains("/css/") || uri.contains("/img/") || uri.contains("/favicon") || user != null) {
+        if (uri.endsWith("/index.jsp") || uri.endsWith("/login") ||
+                uri.endsWith("/") || uri.contains("/js/") || uri.contains("/css/") ||
+                uri.contains("/img/") || uri.contains("/favicon") ||
+                uri.endsWith("/register.jsp") || uri.endsWith("/register") ||
+                uri.endsWith("/checkUsername") || user != null) {
             //进入下一个Filter或者servlet
             System.out.println("通过pass");
             filterChain.doFilter(servletRequest, servletResponse);

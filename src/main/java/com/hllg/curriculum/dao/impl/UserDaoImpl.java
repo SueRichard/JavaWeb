@@ -1,7 +1,7 @@
 package com.hllg.curriculum.dao.impl;
 
-import com.hllg.curriculum.dao.UserDao;
 import com.hllg.curriculum.bean.User;
+import com.hllg.curriculum.dao.UserDao;
 import com.hllg.curriculum.utils.DBUtil;
 
 import java.sql.ResultSet;
@@ -78,5 +78,48 @@ public class UserDaoImpl implements UserDao {
             DBUtil.closeAll();
             return update;
         }
+    }
+
+    /**
+     * 暂时只加入了用户的密码和用户名，后续请再更改sql语句
+     *
+     * @param user
+     * @return int
+     * @Author HLLG
+     * @Date 09/03/2021 16:12
+     **/
+    @Override
+    public int addUser(User user) {
+        String sql = "insert into user(name,password) values(?,?);";
+        List params = new LinkedList();
+        params.add(user.getName());
+        params.add(user.getPassword());
+        int add = DBUtil.update(sql, params);
+        DBUtil.closeAll();
+        return add;
+    }
+
+    @Override
+    public boolean checkUserExistByUsername(String username) {
+        String sql = "select count(*) num from user where name=?";
+        List params = new LinkedList();
+        params.add(username);
+        ResultSet resultSet = DBUtil.queryByCondition(sql, params);
+        boolean isExist = false;
+        int num;
+        try {
+//            //到最后一行
+//            resultSet.last();
+//            //获取总行数
+//            int row = resultSet.getRow();
+            resultSet.next();
+            num = resultSet.getInt("num");
+            if (num > 0) {
+                isExist = true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return isExist;
     }
 }

@@ -11,4 +11,8 @@ public interface UserDao {
     User userLoginCheck(String name, String password);
 
     int updateUserCreditById(int id, int credit);
+
+    int addUser(User user);
+
+    boolean checkUserExistByUsername(String username);
 }

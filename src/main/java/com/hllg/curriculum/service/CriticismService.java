@@ -15,4 +15,8 @@ public interface CriticismService {
     int deleteById(int id);
 
     int add(Criticism criticism);
+
+    int updateLikesNumberById(int id, int number);
+
+    int getLikesNumberById(int id);
 }

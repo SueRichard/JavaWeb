@@ -1,8 +1,8 @@
 package com.hllg.curriculum.service.impl;
 
+import com.hllg.curriculum.bean.User;
 import com.hllg.curriculum.dao.UserDao;
 import com.hllg.curriculum.dao.impl.UserDaoImpl;
-import com.hllg.curriculum.bean.User;
 import com.hllg.curriculum.service.UserService;
 
 /**
@@ -21,5 +21,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public int updateUserCreditById(int id, int credit) {
         return userDao.updateUserCreditById(id, credit);
+    }
+
+    @Override
+    public int addUser(User user) {
+        return userDao.addUser(user);
+    }
+
+    @Override
+    public boolean checkUserExistByUsername(String username) {
+        return userDao.checkUserExistByUsername(username);
     }
 }

@@ -2,10 +2,13 @@ package com.hllg.curriculum.servlet;
 
 import com.hllg.curriculum.bean.Criticism;
 import com.hllg.curriculum.bean.Curriculum;
+import com.hllg.curriculum.bean.UserLikeCriticism;
 import com.hllg.curriculum.service.CriticismService;
 import com.hllg.curriculum.service.CurriculumService;
+import com.hllg.curriculum.service.UserLikeCriticismService;
 import com.hllg.curriculum.service.impl.CriticismServiceImpl;
 import com.hllg.curriculum.service.impl.CurriculumServiceImpl;
+import com.hllg.curriculum.service.impl.UserLikeCriticismServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,8 +32,11 @@ public class queryCriticismByCIDServlet extends HttpServlet {
         int curriculumId = Integer.parseInt(req.getParameter("curriculumId"));
         CriticismService criticismService = new CriticismServiceImpl();
         CurriculumService curriculumService = new CurriculumServiceImpl();
+        //UserLikeCriticismService userLikeCriticismService = new UserLikeCriticismServiceImpl();
         Curriculum curriculum = curriculumService.queryById(curriculumId);
         List<Criticism> criticisms = criticismService.queryByCurriculumId(curriculumId);
+//        List<UserLikeCriticism> allLikes = userLikeCriticismService.findAllLikes();
+//        req.getSession().setAttribute("likes", allLikes);
         req.getSession().setAttribute("course", curriculum);
         req.getSession().setAttribute("criticisms", criticisms);
         resp.sendRedirect("detail.jsp");

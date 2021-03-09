@@ -49,6 +49,7 @@
             <div class="forgot">
                 <a href="#">忘记密码？</a>
             </div>
+			<span style="padding-left: 30px;">还没有账户？<a href="register.jsp">注册</a></span>
             <br>
             <div class="form-group remember">
                 <input class="" type="checkbox" name="" value=""/>&nbsp;记住我

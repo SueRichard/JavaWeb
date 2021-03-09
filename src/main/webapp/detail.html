@@ -24,23 +24,28 @@
     </p>
     <hr color="deeppink" style="height: 2px;"/>
     <!--评论start-->
-    <p style="padding-left: 100px;font-size: 16px;">暂无用户评论,快来分享你的想法吧！</p>
-    <!-- <div class="criticism">
+  <!--  <p style="padding-left: 100px;font-size: 16px;">暂无用户评论,快来分享你的想法吧！</p> -->
+    <div class="criticism">
         <div class="profile-left">
             <img src="img/profile.jpg" class="img-circle" width="60px" height="60px">
         </div>
         <div class="content-body">
-            <p><span>用户名</span>于2021年3月6日20:21:54</p>
-            <span>
-                评论内容
-            </span>
-
+			<div class="col-lg-10">
+				<p><span>用户名</span>于2021年3月6日20:21:54</p>
+				<span>
+				    评论内容
+				</span>
+			</div>
+           <div class="col-lg-2" id="likes">
+			   <img id="likeImg" src="img/colorlessHand.png" width="70px" height="70px" onclick="switchPicture()">
+           	<span>234</span>
+           </div>
         </div>
         <div class="del clear">
             <button type="button" class="btn btn-sm btn-danger">删除</button>
         </div>
-    </div> -->
-    <!--评论end-->
+    </div> 
+   <!--评论end-->
     <hr>
     <hr color="deeppink" style="height: 2px;"/>
     <form action="/criticism" method="get" role="form" class="form-horizontal">
