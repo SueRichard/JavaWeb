@@ -22,7 +22,19 @@
 				<div class="mytop">
 					<h2>注册用户</h2>
 				</div>
-				<form id="register" action="/register" method="post" role="form" class="form-horizontal">
+				<form id="register" action="/register" method="post" role="form" class="form-horizontal" enctype="multipart/form-data">
+					<div class="form-group">
+						<label class="control-label col-lg-2">头像：</label>
+						<div class="col-lg-6">
+							<input class="form-control" type="file" name="profile" id="profile" value=""
+								    />
+						</div>
+						<div class="col-lg-4">
+							<span id="profileInfo">
+								提示信息
+							</span>
+						</div>
+					</div>
 					<div class="form-group">
 						<label class="control-label col-lg-2">用户名：</label>
 						<div class="col-lg-6">

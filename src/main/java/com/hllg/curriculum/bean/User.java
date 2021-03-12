@@ -15,6 +15,15 @@ public class User implements Serializable {
     private String password;
     int role;
     private int credit;
+    private String profileName;
+
+    public String getProfileName() {
+        return profileName;
+    }
+
+    public void setProfileName(String profileName) {
+        this.profileName = profileName;
+    }
 
     @Override
     public boolean equals(Object o) {

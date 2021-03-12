@@ -32,6 +32,7 @@ public class UserDaoImpl implements UserDao {
                 u.setPassword(resultSet.getString("password"));
                 u.setRole(resultSet.getInt("role"));
                 u.setCredit(resultSet.getInt("credit"));
+                u.setProfileName(resultSet.getString("profileName"));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -90,10 +91,11 @@ public class UserDaoImpl implements UserDao {
      **/
     @Override
     public int addUser(User user) {
-        String sql = "insert into user(name,password) values(?,?);";
+        String sql = "insert into user(name,password,profileName) values(?,?,?);";
         List params = new LinkedList();
         params.add(user.getName());
         params.add(user.getPassword());
+        params.add(user.getProfileName());
         int add = DBUtil.update(sql, params);
         DBUtil.closeAll();
         return add;
